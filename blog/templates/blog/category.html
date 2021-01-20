@@ -1,0 +1,20 @@
+{% extends "base/base.html" %}
+{% block title %}Categories{% endblock %}
+{% block body %}
+    <div class="container p-2">
+        <div class="row col-12">
+           {% include "base/header.html" %}
+           <div class="border border-dark p-2 bg-dark rounded col-12">
+                {% for post in category.post %}
+                    <div class="jumbotron jumbotron-fluid">
+                      <div class="container">
+                          <h1 class="display-4 text-right" dir="rtl"><a href="{% url 'post' post.slug %}">{{ post.title }}</a></h1>
+                        <p class="lead text-right text-truncate" dir="rtl"><b>{{ post.content }}</b></p>
+                      </div>
+                    </div>
+                {% endfor %}
+            </div>
+            {% include "base/footer.html" %}
+        </div>
+    </div>
+{% endblock %}

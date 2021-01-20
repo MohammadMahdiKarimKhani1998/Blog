@@ -1,0 +1,47 @@
+{% extends 'base/base.html' %}
+{% block title %}
+    Register
+{% endblock %}
+{% block body %}
+    <div style="background-image: url('../../../media/media/images/register.jpeg');background-repeat: no-repeat; background-size: cover">
+        <div class="container h-100">
+            <div class="row justify-content-center vh-100 align-items-center">
+                <div class="col-7 border border-danger p-4 rounded">
+                    <form method="post" action="{% url 'register' %}">
+                        {% csrf_token %}
+                        <div class="form-row justify-content-between">
+                            <div class="form-group col-md-6">
+                                <label><b>First Name:</b></label>
+                              {{ form.first_name }}
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label><b>Last Name:</b></label>
+                              {{ form.last_name }}
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-12">
+                                <label for="inputEmail4"><b>Email:</b></label>
+                              {{ form.email }}
+                            </div>
+                        </div>
+                        <div class="form-row justify-content-between">
+                            <div class="form-group col-md-6">
+                                <label for="inputPassword4"><b>Password:</b></label>
+                              {{ form.password1 }}
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="inputPassword4"><b>Repeat Password:</b></label>
+                              {{ form.password2 }}
+                            </div>
+                        </div>
+                        <div class="row justify-content-between">
+                          <a href="{% url 'login' %}" class="col-2 my-auto"><b class="text-warning">Sign In?</b></a>
+                            <button type="submit" class="col-2 btn btn-danger mr-4 mt-3 pt-1"><b>Sign up</b></button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
